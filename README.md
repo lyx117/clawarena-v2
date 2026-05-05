@@ -269,14 +269,5 @@ For the current interpretation notes, caveats, and the release-snapshot framing,
 - [Hard split coverage report](openclaw_env/data/datasets/hard_split_coverage_report.json)
 - [Generator coverage report](openclaw_env/data/datasets/generator_coverage_report.json)
 
----
 
-## 📝 Citation
-
-```bibtex
-@misc{clawarena-v2-2026,
-  title   = {ClawArena-V2: An Interactive Environment for Evaluating Command Line Agents on Hard Decision Workflows},
-  year    = {2026},
-  url     = {https://github.com/your-org/cli-agent-env}
-}
 ```
