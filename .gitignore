@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+id_rsa
+id_ed25519
+client_secret.json
+google_calendar_token.json
+google_email_token.json
+google_tasks_token.json

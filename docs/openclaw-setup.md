@@ -32,7 +32,7 @@ openclaw status --json
 
 ## Bootstrap Google-backed providers
 
-For online Calendar, Gmail, or Tasks providers, place a Google OAuth desktop client at `~/.openclaw/client_secret.json` and bootstrap the required channels:
+For online Calendar, Gmail, or Tasks providers, place a Google OAuth desktop client at `~/.openclaw/client_secret.json` and bootstrap the required channels. Keep these OAuth files outside the repository and never commit local token or client-secret JSON files:
 
 ```bash
 python scripts/login_required_channels.py \

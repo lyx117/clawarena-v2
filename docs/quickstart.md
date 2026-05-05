@@ -46,7 +46,7 @@ This command uses a **recommended hard-benchmark protocol** (`--task-prefix hard
 Start a local LiteLLM proxy and export its credentials:
 
 ```bash
-export LITELLM_PROXY_KEY="sk-litellm-master-key"
+export LITELLM_PROXY_KEY="your-litellm-proxy-key"
 export LITELLM_PROXY_BASE_URL="http://127.0.0.1:4000/v1"
 ```
 

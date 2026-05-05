@@ -94,7 +94,7 @@ One common hosted setup is:
 python examples/train_and_eval.py \
   --agent llm \
   --llm-provider openai \
-  --llm-base-url https://openai-api.shenmishajing.workers.dev/v1 \
+  --llm-base-url https://api.example.com/v1 \
   --model Kimi-K2.5 \
   --task-prefix hard_decision_workflow_ \
   --split test \
