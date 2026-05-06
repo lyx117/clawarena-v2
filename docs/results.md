@@ -34,7 +34,7 @@ That distinction matters in ClawForge because a rollout can make substantial pro
 ## Benchmark composition view
 
 <p align="center">
-  <img src="assets/hard-benchmark-composition.png" alt="Composition of the current ClawForge hard benchmark release snapshot" width="680">
+  <img src="assets/hard_scenario_breakdown.png" alt="Breakdown of the current ClawForge hard benchmark scenario families" width="680">
 </p>
 
 This figure is included here because result interpretation depends on benchmark composition. A model that looks strong on aggregate may still be weak on repair-oriented or branch-resolution-heavy slices.

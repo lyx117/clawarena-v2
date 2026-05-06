@@ -64,7 +64,7 @@ The benchmark reports full-pass accuracy, partial-credit score, scenario-level b
 In practice, the hard suite is designed to be difficult for workflow reasons rather than checker reasons. The dominant challenges are partial existing state, duplicate-aware closure, repair versus replacement, and branch selection under conflicting evidence. The benchmark does not rely on one exact privileged trajectory.
 
 <p align="center">
-  <img src="assets/hard-benchmark-composition.png" alt="Composition of the current hard benchmark release snapshot" width="640">
+  <img src="assets/hard_scenario_breakdown.png" alt="Breakdown of the current hard benchmark scenario families" width="640">
 </p>
 
 ## Artifacts

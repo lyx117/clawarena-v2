@@ -41,7 +41,7 @@ ClawForge is built around three ideas:
 This design exposes failures that only appear during execution: duplicate work, stale-state mistakes, wrong updates, and incomplete closure.
 
 <p align="center">
-  <img src="docs/assets/distribution-example.png" alt="ClawForge scenario distribution, workflow execution, and result-first evaluation overview" width="980">
+  <img src="docs/assets/distribution_example.png" alt="ClawForge scenario distribution, workflow execution, and result-first evaluation overview" width="980">
 </p>
 
 ---
@@ -160,6 +160,10 @@ The benchmark evaluates end conditions and observable side effects rather than r
 All generated outputs are written under `openclaw_env/data/{tasks,datasets}`.
 
 The hard benchmark is generator-configurable. In particular, `hard_decision_workflow` supports both a shared base count and explicit per-scenario overrides, so the released `362`-task hard snapshot is one official subset rather than a hard-coded ceiling.
+
+<p align="center">
+  <img src="docs/assets/pipeline_new.png" alt="ClawForge task generation pipeline overview" width="980">
+</p>
 
 For generation flags, output layout, and coverage reports, see [Task Generation Guide](docs/task-generation.md).
 
