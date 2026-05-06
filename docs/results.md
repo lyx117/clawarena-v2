@@ -21,7 +21,7 @@ For the benchmark design and scenario inventory behind these results, see [hard-
 ## Main results view
 
 <p align="center">
-  <img src="assets/main-results-scatter.png" alt="Main release-snapshot results scatter for ClawArena-V2" width="760">
+  <img src="assets/main-results-scatter.png" alt="Main release-snapshot results scatter for ClawForge" width="760">
 </p>
 
 The scatter view is useful because it shows two signals at once:
@@ -29,12 +29,12 @@ The scatter view is useful because it shows two signals at once:
 - strict outcome quality through full-pass accuracy
 - near-miss behavior through average partial-credit score
 
-That distinction matters in ClawArena-V2 because a rollout can make substantial progress on a stateful workflow and still fail strict completion.
+That distinction matters in ClawForge because a rollout can make substantial progress on a stateful workflow and still fail strict completion.
 
 ## Benchmark composition view
 
 <p align="center">
-  <img src="assets/hard-benchmark-composition.png" alt="Composition of the current ClawArena-V2 hard benchmark release snapshot" width="680">
+  <img src="assets/hard-benchmark-composition.png" alt="Composition of the current ClawForge hard benchmark release snapshot" width="680">
 </p>
 
 This figure is included here because result interpretation depends on benchmark composition. A model that looks strong on aggregate may still be weak on repair-oriented or branch-resolution-heavy slices.

@@ -17,12 +17,12 @@ This directory contains the detailed documentation that used to live in the root
 
 ## Plain-Language Overviews
 
-- [ClawArena-V2 Data and Scenario Overview](v2-data-and-scenarios-explained.md) — a plain-English explanation of how V2 tasks are generated, how scenario families work, and what makes the benchmark hard
-- [ClawArena-V2 数据与场景概览（中文版）](v2-data-and-scenarios-explained.zh.md) — 上一篇文档的中文版本，用更直白的方式解释 V2 的数据生成、场景构造和 benchmark 难点
+- [ClawForge Data and Scenario Overview](clawforge-data-and-scenarios-overview.md) — a plain-English explanation of how V2 tasks are generated, how scenario families work, and what makes the benchmark hard
+- [ClawForge 数据与场景概览（中文版）](clawforge-data-and-scenarios-overview.zh.md) — 上一篇文档的中文版本，用更直白的方式解释 V2 的数据生成、场景构造和 benchmark 难点
 
 ## Integration / Maintainer Guides
 
-- [ClawArena-V2 Integration Guide](v2-integration-guide.md) — guidance for teams that need to place the current V2 benchmark line into a broader repo and write accurate umbrella-level documentation around it
+- [ClawForge Integration Guide](clawforge-integration-guide.md) — guidance for teams that need to place the current V2 benchmark line into a broader repo and write accurate umbrella-level documentation around it
 
 ## Historical / Maintainer Notes
 

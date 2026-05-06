@@ -1,10 +1,6 @@
-<p align="center">
-  <img src="fig/logo_white.png" alt="ClawArena-V2 logo" width="420">
-</p>
-
 # Benchmarking AI agents in interactive execution environments
 
-ClawArena-V2 is an interactive benchmark for CLI-style agents. Instead of scoring a final text answer, it evaluates whether an agent can inspect persistent state, issue commands step by step, and complete workflows through real state changes and observable side effects.
+ClawForge is an interactive benchmark for CLI-style agents. Instead of scoring a final text answer, it evaluates whether an agent can inspect persistent state, issue commands step by step, and complete workflows through real state changes and observable side effects.
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -36,7 +32,7 @@ For the benchmark overview and scenario taxonomy, see [Hard Benchmark Reference]
 
 ## 🧭 Why OpenClaw-Env
 
-ClawArena-V2 is built around three ideas:
+ClawForge is built around three ideas:
 
 - **Interactive execution**: agents act through explicit commands and must respond to evolving state.
 - **Automated generation**: tasks are compiled from scenario templates, state initialization, reference trajectories, and executable validators.
@@ -45,7 +41,7 @@ ClawArena-V2 is built around three ideas:
 This design exposes failures that only appear during execution: duplicate work, stale-state mistakes, wrong updates, and incomplete closure.
 
 <p align="center">
-  <img src="docs/assets/distribution-example.png" alt="ClawArena-V2 scenario distribution, workflow execution, and result-first evaluation overview" width="980">
+  <img src="docs/assets/distribution-example.png" alt="ClawForge scenario distribution, workflow execution, and result-first evaluation overview" width="980">
 </p>
 
 ---
@@ -246,7 +242,7 @@ The environment applies:
 The repository also includes a paper-derived snapshot of the current release results. Treat these as a documented release artifact, not as a live leaderboard that updates automatically with every code change.
 
 <p align="center">
-  <img src="docs/assets/main-results-scatter.png" alt="Release-snapshot model results scatter for ClawArena-V2" width="760">
+  <img src="docs/assets/main-results-scatter.png" alt="Release-snapshot model results scatter for ClawForge" width="760">
 </p>
 
 For the current interpretation notes, caveats, and the release-snapshot framing, see [Results Snapshot](docs/results.md).
@@ -263,9 +259,9 @@ For the current interpretation notes, caveats, and the release-snapshot framing,
 - [Task Generation Guide](docs/task-generation.md)
 - [Hard Benchmark Reference](docs/hard-benchmark.md)
 - [Results Snapshot](docs/results.md)
-- [ClawArena-V2 Data and Scenario Overview](docs/v2-data-and-scenarios-explained.md)
+- [ClawForge Data and Scenario Overview](docs/clawforge-data-and-scenarios-overview.md)
 - [Project Structure Guide](docs/project-structure.md)
-- [ClawArena-V2 Integration Guide](docs/v2-integration-guide.md)
+- [ClawForge Integration Guide](docs/clawforge-integration-guide.md)
 - [Hard split coverage report](openclaw_env/data/datasets/hard_split_coverage_report.json)
 - [Generator coverage report](openclaw_env/data/datasets/generator_coverage_report.json)
 
