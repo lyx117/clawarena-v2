@@ -10,7 +10,7 @@ That means the benchmark is not asking, “Can the model describe the right plan
 
 ## How the data is produced
 
-The V2 data is not one fixed handwritten list of benchmark questions. It is generated from reusable scenario families.
+The ClawForge data is not one fixed handwritten list of benchmark questions. It is generated from reusable scenario families.
 
 A scenario family is a pattern like:
 
@@ -30,7 +30,7 @@ For each generated task, the pipeline combines a few pieces:
 
 So a generated task is more than an instruction string. It also includes the environment setup, the benchmark bookkeeping, and the checks that define success.
 
-This is why current counts such as `17` hard scenarios, `362` hard tasks, and `1616` total tasks should be read as **official release stats for the current snapshot**, not as hard limits on what V2 can contain.
+This is why current counts such as `17` hard scenarios, `362` hard tasks, and `1616` total tasks should be read as **official release stats for the current snapshot**, not as hard limits on what ClawForge can contain.
 
 ## How the scenarios are produced
 
@@ -85,7 +85,7 @@ The hard parts are things real agents struggle with:
 - stale state has to be replaced without breaking good state
 - success means finishing the entire workflow, not just one sub-step
 
-That is why V2 is more informative than a one-shot benchmark. It exposes the difference between an agent that can talk about the workflow and an agent that can actually complete it.
+That is why ClawForge is more informative than a one-shot benchmark. It exposes the difference between an agent that can talk about the workflow and an agent that can actually complete it.
 
 ## How evaluation works in simple terms
 
@@ -111,7 +111,7 @@ That distinction matters because an agent can do a lot of the workflow correctly
 
 ## Current official profile
 
-The current official V2 hard profile is:
+The current official ClawForge hard profile is:
 
 - `17` hard scenarios
 - `362` hard tasks

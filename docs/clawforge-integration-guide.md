@@ -6,9 +6,9 @@ Back to [README](../README.md) · See also [docs/README.md](README.md), [clawfor
 
 This document is a detailed introduction to **ClawForge** for developers who did not build it originally but now need to:
 
-- understand what V2 is actually claiming
+- understand what ClawForge is actually claiming
 - place it correctly inside a larger repository or documentation set
-- know which modules are core to V2
+- know which modules are core to ClawForge
 - know which parts are generic infrastructure and which parts are benchmark-specific
 - write accurate umbrella-level documentation without diluting or mislabeling the benchmark
 
@@ -34,7 +34,7 @@ The current flagship suite is `hard_decision_workflow`, a generator-backed bench
 
 ## Installation and first-run path
 
-Another development team usually needs more than a conceptual explanation. They also need the minimal operational path that proves V2 is concrete and runnable.
+Another development team usually needs more than a conceptual explanation. They also need the minimal operational path that proves ClawForge is concrete and runnable.
 
 ### Editable installation
 
@@ -49,7 +49,7 @@ This installs the environment plus development dependencies used by generation s
 
 ### Regenerating benchmark artifacts
 
-V2 benchmark assets are largely generated rather than manually edited. The standard regeneration command is:
+ClawForge benchmark assets are largely generated rather than manually edited. The standard regeneration command is:
 
 ```bash
 python scripts/generate_tasks.py
@@ -60,7 +60,7 @@ This refreshes artifacts under:
 - `openclaw_env/data/tasks/`
 - `openclaw_env/data/datasets/`
 
-If another team is integrating V2 into a broader repo, this command is the canonical way to rebuild release artifacts before validating counts, split files, or coverage reports.
+If another team is integrating ClawForge into a broader repo, this command is the canonical way to rebuild release artifacts before validating counts, split files, or coverage reports.
 
 ### First evaluation run
 
@@ -112,7 +112,7 @@ The current repo also supports a local LiteLLM proxy path for Claude-style model
 - point `--llm-provider openai` at that proxy
 - use a `claude-*` model name
 
-The detailed operational steps belong in [quickstart.md](quickstart.md) and [evaluation.md](evaluation.md), but another team documenting V2 should know this path exists because it affects how benchmark comparisons are actually run.
+The detailed operational steps belong in [quickstart.md](quickstart.md) and [evaluation.md](evaluation.md), but another team documenting ClawForge should know this path exists because it affects how benchmark comparisons are actually run.
 
 ## OpenClaw and runtime prerequisites
 
@@ -137,7 +137,7 @@ These require a working OpenClaw installation and provider bootstrap. In practic
 - setting up Google-backed providers where Calendar, Gmail, or Tasks are involved
 - exporting the required provider environment variables
 
-Another team integrating V2 should understand that OpenClaw setup is shared runtime infrastructure, while the benchmark semantics remain V2-specific.
+Another team integrating ClawForge should understand that OpenClaw setup is shared runtime infrastructure, while the benchmark semantics remain ClawForge-specific.
 
 ## Operational details that matter during integration
 
@@ -155,7 +155,7 @@ This changes how much interaction history is sent back to the model during rollo
 
 ### Useful output and reporting flags
 
-When V2 is run through `examples/train_and_eval.py`, the most useful additional outputs are:
+When ClawForge is run through `examples/train_and_eval.py`, the most useful additional outputs are:
 
 - `--verbose-log PATH`
 - `--save-report PATH`
@@ -171,7 +171,7 @@ These matter in integration contexts because another team will often want:
 
 ### Development checks
 
-The most useful targeted checks for V2 are:
+The most useful targeted checks for ClawForge are:
 
 ```bash
 pytest -q tests/test_hard_decision_workflow_generator.py
@@ -187,11 +187,11 @@ If another team needs a short, accurate description for an umbrella README or re
 
 > ClawForge is an interactive benchmark for command-line agents operating over persistent software state. Rather than scoring a final text answer, it evaluates whether an agent can inspect environment state, issue commands step by step, and complete workflows through real state changes and observable side effects. The benchmark is generator-backed, result-first, and evaluated through normalized execution state rather than exact action-sequence matching.
 
-That wording matches the actual V2 contract and avoids importing claims that belong to other systems.
+That wording matches the actual ClawForge contract and avoids importing claims that belong to other systems.
 
-## What V2 is and is not
+## What ClawForge is and is not
 
-### What V2 is
+### What ClawForge is
 
 ClawForge is:
 
@@ -201,7 +201,7 @@ ClawForge is:
 - a result-first evaluator over normalized state
 - a benchmark for multi-step workflow execution
 
-### What V2 is not
+### What ClawForge is not
 
 ClawForge is not:
 
@@ -212,15 +212,15 @@ ClawForge is not:
 - a pure prompting framework
 - an exact-trajectory imitation benchmark
 
-The repository may contain generic runtime components that are reusable elsewhere, but the V2 contribution itself is about **interactive execution benchmarking under evolving state**.
+The repository may contain generic runtime components that are reusable elsewhere, but the ClawForge contribution itself is about **interactive execution benchmarking under evolving state**.
 
-## The core V2 design
+## The core ClawForge design
 
 ClawForge is organized around three high-level design choices.
 
 ### 1. Interactive execution instead of final-answer scoring
 
-In a V2 rollout, the agent does not see one prompt and respond once. Instead:
+In a ClawForge rollout, the agent does not see one prompt and respond once. Instead:
 
 1. the agent receives a task instruction
 2. it inspects the current observation and visible environment state
@@ -258,11 +258,11 @@ This is why current released counts such as:
 
 should be read as **current official release statistics**, not as hard-coded benchmark limits.
 
-In other words, V2 should be described as a **benchmark family with an official release profile**, not as a single frozen CSV.
+In other words, ClawForge should be described as a **benchmark family with an official release profile**, not as a single frozen CSV.
 
 ### 3. Functional evaluation over normalized state
 
-V2 does not require one exact privileged action sequence.
+ClawForge does not require one exact privileged action sequence.
 
 Instead, the environment builds a normalized evaluator-facing state and runs typed result-first checks over it. This is what allows:
 
@@ -272,9 +272,9 @@ Instead, the environment builds a normalized evaluator-facing state and runs typ
 
 The key idea is that the evaluator reasons over what the agent *caused*, not merely over what text it *said*.
 
-## The V2 runtime contract
+## The ClawForge runtime contract
 
-If another team is integrating V2, they should understand the runtime contract, because this is where V2 differs most sharply from text-only benchmarks.
+If another team is integrating ClawForge, they should understand the runtime contract, because this is where ClawForge differs most sharply from text-only benchmarks.
 
 ### Inputs
 
@@ -310,9 +310,9 @@ The rollout can produce several kinds of evidence:
 
 These are later merged into the evaluator-facing normalized state.
 
-## The V2 evaluation contract
+## The ClawForge evaluation contract
 
-Another team integrating V2 should not describe the evaluator loosely as “grading commands” or “checking answers.” The evaluator is stricter and more structured than that.
+Another team integrating ClawForge should not describe the evaluator loosely as “grading commands” or “checking answers.” The evaluator is stricter and more structured than that.
 
 ### Normalized evaluator state
 
@@ -347,11 +347,11 @@ The evaluator is result-first:
 - it does not require one exact command trace
 - multiple trajectories can pass if they satisfy the same evaluated outcome
 
-This point should be preserved in any unified documentation. If another team rewrites V2 as an exact-match benchmark, that rewrite is incorrect.
+This point should be preserved in any unified documentation. If another team rewrites ClawForge as an exact-match benchmark, that rewrite is incorrect.
 
 ### Metrics
 
-V2 commonly reports both:
+ClawForge commonly reports both:
 
 - **full-pass accuracy**
 - **partial-credit average score**
@@ -364,7 +364,7 @@ Average score is the dataset mean of the per-task weighted aggregate score compu
 
 ### Provider-aware accounting
 
-When external LLM endpoints are used, interactive runs can be affected by retries, filtered outputs, compact fallbacks, or upstream failures. V2 therefore keeps provider-aware accounting fields such as:
+When external LLM endpoints are used, interactive runs can be affected by retries, filtered outputs, compact fallbacks, or upstream failures. ClawForge therefore keeps provider-aware accounting fields such as:
 
 - `provider_failures`
 - `provider_impacted_tasks`
@@ -372,9 +372,9 @@ When external LLM endpoints are used, interactive runs can be affected by retrie
 
 These fields do not redefine the evaluator; they make interactive rollout results more interpretable.
 
-## The flagship V2 benchmark family
+## The flagship ClawForge benchmark family
 
-The current V2 flagship benchmark family is:
+The current ClawForge flagship benchmark family is:
 
 - `hard_decision_workflow`
 
@@ -428,7 +428,7 @@ The hard suite is not mainly difficult because the checker is arbitrary or britt
 - branch choice may depend on multiple sources
 - success may require end-to-end closure rather than a single correct sub-action
 
-That distinction matters when another team writes benchmark documentation. V2 should be described as **workflow-hard**, not checker-hard.
+That distinction matters when another team writes benchmark documentation. ClawForge should be described as **workflow-hard**, not checker-hard.
 
 ## Current official release profile
 
@@ -454,7 +454,7 @@ and not with wording that implies the benchmark family cannot be regenerated at 
 
 ## Execution modes
 
-V2 supports four execution modes:
+ClawForge supports four execution modes:
 
 - `mock`
 - `multi`
@@ -467,7 +467,7 @@ The exact semantics are documented in [execution-modes.md](execution-modes.md), 
 - execution modes change backend realization, not benchmark semantics
 - the same task family can be evaluated under different backend realizations
 
-If another team writes umbrella docs, execution modes usually belong in shared runtime documentation rather than in a V2-only benchmark overview.
+If another team writes umbrella docs, execution modes usually belong in shared runtime documentation rather than in a ClawForge-only benchmark overview.
 
 ## History modes in LLM rollouts
 
@@ -542,9 +542,9 @@ This layer defines result-first checks, rollout behavior, reporting, and LLM-fac
 
 - `Latex/ClawForge_V2/main/`
 
-If another team is integrating paper materials or preparing a unified paper/docs index, this is the canonical V2 manuscript path.
+If another team is integrating paper materials or preparing a unified paper/docs index, this is the canonical ClawForge manuscript path.
 
-## How to document V2 inside a larger repo
+## How to document ClawForge inside a larger repo
 
 If another team is preparing one shared repository homepage, the cleanest approach is a three-layer documentation structure.
 
@@ -554,9 +554,9 @@ The root README should explain:
 
 - what the shared environment/repo is
 - that ClawForge is one benchmark line inside it
-- where to find V2-specific documentation
+- where to find ClawForge-specific documentation
 
-It should not inline the full V2 benchmark taxonomy or all generation details.
+It should not inline the full ClawForge benchmark taxonomy or all generation details.
 
 ### Layer 2: shared infrastructure docs
 
@@ -569,44 +569,44 @@ The following topics are usually better written once at the repo level:
 - common evaluation entrypoints
 - project structure
 
-These are shared runtime concerns, not unique V2 claims.
+These are shared runtime concerns, not unique ClawForge claims.
 
-### Layer 3: V2-specific docs
+### Layer 3: ClawForge-specific docs
 
-The following topics should remain clearly labeled as V2-specific:
+The following topics should remain clearly labeled as ClawForge-specific:
 
 - benchmark overview
 - scenario families and ability buckets
 - current release profile
 - generator semantics
 - normalized evaluator state and result-first checks
-- V2 figures, tables, and manuscript claims
+- ClawForge figures, tables, and manuscript claims
 
 This is what keeps a unified repo readable and scientifically accurate.
 
 ## Common mistakes to avoid
 
-These are the mistakes another development team is most likely to make when summarizing V2 quickly.
+These are the mistakes another development team is most likely to make when summarizing ClawForge quickly.
 
-### Mistake 1: describing V2 as a static benchmark
-
-Wrong idea:
-
-- “V2 is a set of fixed benchmark questions.”
-
-Correct idea:
-
-- V2 is a generator-backed benchmark family with a current official release profile.
-
-### Mistake 2: flattening V2 into “tool use”
+### Mistake 1: describing ClawForge as a static benchmark
 
 Wrong idea:
 
-- “V2 measures whether an agent can call tools.”
+- “ClawForge is a set of fixed benchmark questions.”
 
 Correct idea:
 
-- V2 measures whether an agent can execute multi-step workflows correctly under evolving state.
+- ClawForge is a generator-backed benchmark family with a current official release profile.
+
+### Mistake 2: flattening ClawForge into “tool use”
+
+Wrong idea:
+
+- “ClawForge measures whether an agent can call tools.”
+
+Correct idea:
+
+- ClawForge measures whether an agent can execute multi-step workflows correctly under evolving state.
 
 ### Mistake 3: describing evaluation as exact-match
 
@@ -616,13 +616,13 @@ Wrong idea:
 
 Correct idea:
 
-- V2 is result-first and allows multiple valid trajectories to pass if they yield the same evaluated outcome.
+- ClawForge is result-first and allows multiple valid trajectories to pass if they yield the same evaluated outcome.
 
 ### Mistake 4: presenting release counts as permanent limits
 
 Wrong idea:
 
-- “V2 consists of exactly 362 hard tasks.”
+- “ClawForge consists of exactly 362 hard tasks.”
 
 Correct idea:
 
@@ -636,7 +636,7 @@ Wrong idea:
 
 Correct idea:
 
-- keep setup docs shared; keep V2 benchmark semantics and claims under V2-specific docs
+- keep setup docs shared; keep ClawForge benchmark semantics and claims under ClawForge-specific docs
 
 ### Mistake 6: omitting the operational path
 
@@ -646,7 +646,7 @@ Wrong idea:
 
 Correct idea:
 
-- include the editable install path, generation command, evaluation entrypoint, execution-mode requirements, and the location of canonical V2 docs
+- include the editable install path, generation command, evaluation entrypoint, execution-mode requirements, and the location of canonical ClawForge docs
 
 ## Suggested wording blocks for external teams
 
@@ -664,13 +664,13 @@ Correct idea:
 
 ## Practical checklist for external developers
 
-Use this checklist before integrating V2 into a broader repo or rewriting docs around it.
+Use this checklist before integrating ClawForge into a broader repo or rewriting docs around it.
 
 1. Read [README](../README.md), [Hard Benchmark Reference](hard-benchmark.md), and [Evaluation Guide](evaluation.md).
-2. Keep V2 benchmark docs under an explicitly labeled V2 path.
+2. Keep ClawForge benchmark docs under an explicitly labeled ClawForge path.
 3. Treat current counts as release statistics, not immutable limits.
 4. Keep setup and execution-mode docs shared if the larger repo uses the same runtime.
-5. Keep scenario taxonomy, release profiles, and evaluator semantics V2-specific.
+5. Keep scenario taxonomy, release profiles, and evaluator semantics ClawForge-specific.
 6. Point paper/manuscript references to `Latex/ClawForge_V2/main/`.
 7. If summarizing the benchmark briefly, emphasize interactive execution, generator-backed tasks, and normalized result-first evaluation.
 8. If another team will actually run the code, also point them to:
@@ -684,13 +684,13 @@ Use this checklist before integrating V2 into a broader repo or rewriting docs a
 If another team is building a unified documentation tree around this codebase, the most useful next documents are:
 
 - one umbrella README
-- one V2 overview page
+- one ClawForge overview page
 - one shared setup guide
 - one shared execution-modes guide
 - one shared project-structure guide
 - one shared evaluation entrypoint guide
 
-This is enough to preserve V2 semantics without overloading the root README.
+This is enough to preserve ClawForge semantics without overloading the root README.
 
 ## Final recommendation
 
